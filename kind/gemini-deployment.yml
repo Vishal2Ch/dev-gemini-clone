@@ -53,11 +53,21 @@ spec:
             secretKeyRef:
               name: gemini-secret
               key: NEXT_PUBLIC_API_KEY
+              
         - name: HOSTNAME
           value: "0.0.0.0"
+          
         - name: PORT
           value: "3000"
+          
         - name: NODE_ENV
           value: "production"
+          
         - name: NEXTAUTH_URL
           value: "http://187.127.154.185.nip.io"
+
+        - name: NEXTAUTH_URL_INTERNAL
+          value: "http://localhost:3000"
+
+        - name: TRUST_PROXY
+          value: "true"
