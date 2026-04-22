@@ -6,5 +6,4 @@ metadata:
 data:
   GOOGLE_ID: 140935757134-ddcubp5n499pmmf4vefe561s0q8ctinc.apps.googleusercontent.com
   MONGODB_URI: mongodb://mongodb-service:27017/gemini
-  NEXTAUTH_URL: https://187.127.154.185.nip.io
   MONGO_INITDB_ROOT_USERNAME: admin
