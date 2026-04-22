@@ -10,6 +10,10 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-set-headers: "ingress-nginx/custom-headers"
     nginx.ingress.kubernetes.io/proxy-buffering: "off"
     nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Connection "";
+      chunked_transfer_encoding off;
 spec:
   ingressClassName: nginx
   rules:
