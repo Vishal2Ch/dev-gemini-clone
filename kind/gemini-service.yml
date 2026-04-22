@@ -12,5 +12,6 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3000
-  type: ClusterIP
+    nodeport: 30007
+  type: NodePort
     # nodePort is auto-assigned (e.g., 30194)
