@@ -12,6 +12,6 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3000
-    nodeport: 30007
+    nodePort: 30007
   type: NodePort
     # nodePort is auto-assigned (e.g., 30194)
