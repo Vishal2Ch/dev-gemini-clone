@@ -9,10 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
     nginx.ingress.kubernetes.io/proxy-buffering: "off"
     nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
-
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      proxy_set_header Connection "";
-      chunked_transfer_encoding off;
+    
 spec:
   ingressClassName: nginx
   rules:
