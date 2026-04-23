@@ -29,7 +29,7 @@ const ChatActionsBtns = ({
 }) => {
   const { devToast, setToast } = geminiZustand();
   const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-001" });
   const [googleRes, setGoogleRes] = useState<string[] | null>(null)
   const [loader, setLoader] = useState(false)
 
