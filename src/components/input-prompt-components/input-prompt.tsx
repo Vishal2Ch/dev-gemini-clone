@@ -22,7 +22,7 @@ const InputPrompt = ({ user }: { user?: User }) => {
   const [inputRref, { height }] = useMeasure<HTMLTextAreaElement>();
   const chatID = (chat as string) || nanoid();
   const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-001" });
   const cancelRef = useRef(false);
 
   const generateMsg = useCallback(async () => {
@@ -78,7 +78,7 @@ const InputPrompt = ({ user }: { user?: User }) => {
           setToast('Please upload an image before analyzing.');
           return;
         }
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-001" });
         try {
           const imagePart = await fileToGenerativePart(inputImg);
           const result = await model.generateContent([detailedPrompt, imagePart as string]);
