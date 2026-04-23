@@ -14,6 +14,7 @@ import { FcGoogle } from "react-icons/fc";
 
 import Link from "next/link";
 import { IoMdSearch } from "react-icons/io";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
 const ChatActionsBtns = ({
@@ -29,7 +30,7 @@ const ChatActionsBtns = ({
 }) => {
   const { devToast, setToast } = geminiZustand();
 
-  const { GoogleGenerativeAI } = await import("@google/generative-ai");
+  
 
   const genAI = new GoogleGenerativeAI(
   process.env.NEXT_PUBLIC_API_KEY as string
@@ -60,8 +61,16 @@ const ChatActionsBtns = ({
     try {
       setLoader(true)
       const result = await model.generateContent(prompt);
-      const text = response.text();
-      const googleResArray = JSON.parse(text);
+      const text = result.response.text();
+      let googleResArray: string[] = [];
+
+      try {
+        googleResArray = JSON.parse(text);
+      } catch (e) {
+        console.error("Invalid JSON:", text);
+        setToast("Failed to parse response");
+        return;
+      }
       setGoogleRes(googleResArray)
 
     } catch (error) {
