@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - name: gemini
-        image: vishalchauhan1830/gemininip:v2
+        image: gemini-app
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
         resources:
