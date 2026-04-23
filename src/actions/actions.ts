@@ -215,7 +215,7 @@ export const updateResponse = async ({
 //       throw new Error("Prompt is empty");
 //     }
 //     const res = await axios.post(
-//       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.NEXT_PUBLIC_API_KEY}`,
+//       `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash-001:generateContent?key=${process.env.NEXT_PUBLIC_API_KEY}`,
 //       {
 //         contents: [{ parts: [{ text: prompt }] }],
 //       }
