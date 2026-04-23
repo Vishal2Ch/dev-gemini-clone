@@ -11,7 +11,7 @@ import { Toaster, toast } from 'sonner'
 import { MdContentCopy, MdOutlineFlag } from "react-icons/md";
 import geminiZustand from "@/utils/gemini-zustand";
 import { FcGoogle } from "react-icons/fc";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+
 import Link from "next/link";
 import { IoMdSearch } from "react-icons/io";
 
@@ -28,8 +28,17 @@ const ChatActionsBtns = ({
   shareMsg: string;
 }) => {
   const { devToast, setToast } = geminiZustand();
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-001" });
+
+  const { GoogleGenerativeAI } = await import("@google/generative-ai");
+
+  const genAI = new GoogleGenerativeAI(
+  process.env.NEXT_PUBLIC_API_KEY as string
+);
+
+  const model = genAI.getGenerativeModel({
+  model: "gemini-2.0-flash-001",
+});
+  
   const [googleRes, setGoogleRes] = useState<string[] | null>(null)
   const [loader, setLoader] = useState(false)
 
@@ -51,7 +60,6 @@ const ChatActionsBtns = ({
     try {
       setLoader(true)
       const result = await model.generateContent(prompt);
-      const response = await result.response;
       const text = response.text();
       const googleResArray = JSON.parse(text);
       setGoogleRes(googleResArray)
