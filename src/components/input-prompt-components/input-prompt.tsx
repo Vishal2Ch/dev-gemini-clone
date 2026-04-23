@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { createChat } from "@/actions/actions";
 import { nanoid } from "nanoid";
 import { useMeasure } from "react-use";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+
 import { User } from "next-auth";
 import InputActions from "./input-actions";
 import Link from "next/link";
@@ -21,8 +21,12 @@ const InputPrompt = ({ user }: { user?: User }) => {
   const router = useRouter();
   const [inputRref, { height }] = useMeasure<HTMLTextAreaElement>();
   const chatID = (chat as string) || nanoid();
+
+  const { GoogleGenerativeAI } = await import("@google/generative-ai");
   const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_API_KEY as string);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-001" });
+  const model = genAI.getGenerativeModel({model: "gemini-2.0-flash-001",});
+  
+
   const cancelRef = useRef(false);
 
   const generateMsg = useCallback(async () => {
