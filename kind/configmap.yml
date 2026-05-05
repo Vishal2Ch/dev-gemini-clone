@@ -4,7 +4,8 @@ metadata:
   name: gemini-config
   namespace: gemini-namespace
 data:
-  GOOGLE_ID: 140935757134-5dj5ct7d6knjkav14cdvt3i5ppeq6olv.apps.googleusercontent.com
+  #GOOGLE_ID: 140935757134-5dj5ct7d6knjkav14cdvt3i5ppeq6olv.apps.googleusercontent.com
+  GOOGLE_ID: 140935757134-dd90jllgc0kbbl5s624131qa4k8h9m87.apps.googleusercontent.com # new oauth client created on 5 may 2026
   MONGODB_URI: mongodb://mongodb-service:27017/gemini
   NEXTAUTH_URL: http://187.127.154.185.nip.io:8080
   MONGO_INITDB_ROOT_USERNAME: admin
